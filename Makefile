@@ -113,14 +113,14 @@ test-backend-es-qs:
 	tests/test-backend-es-qs.py
 
 test-backend-sql:
-	cd tools && python3 setup.py install
+	cd tools && python3.7 setup.py install
 	cd tools && $(COVERAGE) run -m pytest tests/test_backend_sql.py tests/test_backend_sqlite.py
 
 test-sigma2attack:
 	$(COVERAGE) run -a --include=$(COVSCOPE) tools/sigma2attack
 
 build: tools/sigma/*.py tools/setup.py tools/setup.cfg
-	cd tools && python3 setup.py bdist_wheel sdist
+	cd tools && python3.7 setup.py bdist_wheel sdist
 
 upload-test: build
 	twine upload --repository-url https://test.pypi.org/legacy/ tools/dist/*
