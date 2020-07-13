@@ -261,15 +261,9 @@ class AzureLogAnalyticsBackend(SingleTextQueryBackend):
         if agg is None:
             return ""
         if agg.aggfunc == SigmaAggregationParser.AGGFUNC_NEAR:
-            raise NotImplementedError(
-                "The 'near' aggregation operator is not "
-                + f"implemented for the %s backend" % self.identifier
-            )
+            raise NotImplementedError("The 'near' aggregation operator is not ")
         if agg.aggfunc_notrans != 'count' and agg.aggfield is None:
-            raise NotSupportedError(
-                "The '%s' aggregation operator " % agg.aggfunc_notrans
-                + "must have an aggregation field for the %s backend" % self.identifier
-            )
+            raise NotSupportedError("The aggregation operator")
         if agg.aggfunc_notrans == 'count' and agg.aggfield is not None:
             agg_func = "dcount"
         else:
