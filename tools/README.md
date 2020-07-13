@@ -184,7 +184,7 @@ expo_realert_time: 10m
 $ RULE=rules/windows/builtin/win_susp_sam_dump.yml
 
 # Generate an elastalert rule and take options from the configuration file
-$ python3 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml
+$ python3.7 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml
 alert:
 - email
 description: Detects suspicious SAM dump activity as cause by QuarksPwDump and other
@@ -205,7 +205,7 @@ smtp_host: smtp.google.com
 type: any
 
 # Override an option from the configuration file via the CLI
-$ python3 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml --backend-option smtp_host=smtp.mailgun.com
+$ python3.7 tools/sigmac $RULE -t elastalert --backend-config backend_config.yml --backend-option smtp_host=smtp.mailgun.com
 alert:
 - email
 description: Detects suspicious SAM dump activity as cause by QuarksPwDump and other

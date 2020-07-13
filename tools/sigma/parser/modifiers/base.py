@@ -14,13 +14,13 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from enum import Enum, auto
+from enum import Enum
 from .exceptions import SigmaModifierValueTypeError
 
 class SigmaModifierTypes(Enum):
-    NONE = auto()
-    TRANSFORM = auto()
-    TYPE = auto()
+    NONE = 1
+    TRANSFORM = 2
+    TYPE = 3
 
 class SigmaModifier(object):
     """
